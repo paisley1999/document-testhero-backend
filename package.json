@@ -1,0 +1,28 @@
+{
+  "name": "document-testhero-backend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "firebase": "^4.1.2",
+    "lodash": "^4.17.4",
+    "material-design-icons": "^3.0.1",
+    "material-design-lite": "^1.3.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.14.0",
+    "concurrently": "^3.4.0",
+    "react-scripts": "1.0.7",
+    "stylus": "^0.54.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "styles": "stylus -u autoprefixer-stylus ./src/css/style.styl -o ./src/css/style.css",
+    "styles:watch": "stylus -u autoprefixer-stylus -w ./src/css/style.styl -o ./src/css/style.css",
+    "watch": "concurrently --names 'webpack, stylus' --prefix name 'npm run start' 'npm run styles:watch'"
+  }
+}
