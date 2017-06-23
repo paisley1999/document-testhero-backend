@@ -1,3 +1,4 @@
+@import "~material-design-lite/material.min.css";
 .App {
   text-align: center;
 }
@@ -71,6 +72,24 @@ body {
 .signup-form-control.forgot-password-button-box .mdl-button {
   font-size: 12px;
 }
+.login-form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  -webkit-box-shadow: 0 0 30px rgba(0,0,0,0.2);
+          box-shadow: 0 0 30px rgba(0,0,0,0.2);
+}
+.login-form .mdl-layout {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 .loading-data .loading-before-logo {
   display: block;
   margin-left: auto;
@@ -84,4 +103,3 @@ body {
   font-size: 18px !important;
   font-weight: normal;
 }
-@import "~material-design-lite/material.min.css";
