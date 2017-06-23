@@ -40,4 +40,35 @@ body {
             transform: rotate(360deg);
   }
 }
+.signup-form-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80%;
+  margin: auto;
+  color: #aaa;
+}
+.signup-form-control > i {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #aaa !important;
+  margin-right: 10px !important;
+}
+.signup-form-control input {
+  color: #000;
+}
+.signup-form-control .mdl-textfield {
+  width: 100%;
+}
+.signup-form-control.forgot-password-button-box {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.signup-form-control.forgot-password-button-box .mdl-button {
+  font-size: 12px;
+}
 @import "~material-design-lite/material.min.css";

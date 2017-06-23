@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import firebase from 'firebase'
+import { config } from '../helper/firebase'
+
+import ListApi from './ListApi'
+import LoginForm from '../components/LoginForm'
 
 class Main extends Component {
+    componentDidMount() {
+        firebase.initializeApp(config);
+        this.props.getUserStatus()
+    }
+
     render() {
         return (
-            <div></div>
+            <div className="App">
+                {
+                    this.props.user !== '' ?
+                        <ListApi/>
+                        :
+                        <LoginForm/>
+                }
+            </div>
         );
     }
 }
-
-Main.propTypes = {};
-Main.defaultProps = {};
 
 export default Main;

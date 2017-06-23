@@ -5,23 +5,25 @@ import {
     Route
 } from 'react-router-dom';
 
+import { Provider } from 'react-redux';
+import store from './store';
+
 import registerServiceWorker from './registerServiceWorker';
 
+// import style css
 import './css/style.css'
 
-import App from './containers/App';
-import LoginForm from './components/LoginForm'
-// ReactDOM.render(<App />, document.getElementById('root'));
+// import components
+import App from './containers/App'
 
 const router = (
-
-    <Router>
-        <div>
-            <Route exact path="/" component={App}/>
-            <Route path="/login" component={LoginForm}/>
-        </div>
-    </Router>
-
+    <Provider store={store}>
+        <Router>
+            <div>
+                <Route exact path="/" component={App}/>
+            </div>
+        </Router>
+    </Provider>
 );
 
 render(router, document.getElementById('root'));
