@@ -2,6 +2,7 @@
   "name": "document-testhero-backend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://nopparat9pi.github.io/document-testhero-backend",
   "dependencies": {
     "firebase": "^4.1.2",
     "history": "^4.6.3",
@@ -16,11 +17,13 @@
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "webpack": "^3.0.0"
   },
   "devDependencies": {
     "autoprefixer-stylus": "^0.14.0",
     "concurrently": "^3.4.0",
+    "gh-pages": "^1.0.0",
     "react-scripts": "1.0.7",
     "stylus": "^0.54.5"
   },
@@ -31,6 +34,8 @@
     "eject": "react-scripts eject",
     "styles": "stylus -u autoprefixer-stylus ./src/css/style.styl -o ./src/css/style.css",
     "styles:watch": "stylus -u autoprefixer-stylus -w ./src/css/style.styl -o ./src/css/style.css",
-    "watch": "concurrently --names 'webpack, stylus' --prefix name 'npm run start' 'npm run styles:watch'"
+    "watch": "concurrently --names 'webpack, stylus' --prefix name 'npm run start' 'npm run styles:watch'",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
