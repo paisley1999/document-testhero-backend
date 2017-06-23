@@ -4,6 +4,7 @@ import { config } from '../helper/firebase'
 
 import ListApi from './ListApi'
 import LoginForm from '../components/LoginForm'
+import LoadingDataComponent from '../components/shared/LoadingDataComponent'
 
 class Main extends Component {
     state = {
@@ -30,7 +31,7 @@ class Main extends Component {
             <div className="App">
                 {
                     isLoading ?
-                        <div>Loading...</div>
+                        <LoadingDataComponent/>
                         :
                         this.props.user !== '' && this.props.user !== 'null' ?
                             <ListApi/>
