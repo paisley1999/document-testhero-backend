@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-
+import $ from 'jquery'
 import firebase from 'firebase'
 
 class LoginForm extends Component {
-    signInWithEmailAndPassword = ({email = '9pi.tutor@gmail.com', password = '111111'}) => {
-        const input_email = this.modal_login_email.value
-        const input_password = this.modal_login_password.value
-        console.log(input_email + ' __________________ ' + input_password)
+    componentDidMount() {
+        $('#txt_email').val('')
+        $('#txt_password').val('')
+    }
 
-        firebase.auth().signInWithEmailAndPassword(email, password)
+    signInWithEmailAndPassword = () => {
+        // {email = '9pi.tutor@gmail.com', password = '111111'}
+        const input_email = $('#txt_email').val();
+        const input_password = $('#txt_password').val();
+        // console.log(input_email + ' __________________ ' + input_password)
+
+        firebase.auth().signInWithEmailAndPassword(input_email, input_password)
             .catch(function (error) {
                 // Handle Errors here.
                 let errorCode = error.code;
@@ -23,23 +29,20 @@ class LoginForm extends Component {
     }
 
     render() {
+        console.log('LoginForm Component')
         return (
             <div className="">
                 <div className={`signup-form-control`}>
                     <i className="material-icons">mail_outline</i>
                     <div className="mdl-textfield mdl-js-textfield">
-                        <input className="mdl-textfield__input"
-                               type="email"
-                               ref={(input) => this.modal_login_email = input} />
+                        <input id="txt_email" className="mdl-textfield__input" type="email" />
                         <label className="mdl-textfield__label">Email</label>
                     </div>
                 </div>
                 <div className={`signup-form-control`}>
                     <i className="material-icons">lock_outline</i>
                     <div className="mdl-textfield mdl-js-textfield">
-                        <input className="mdl-textfield__input"
-                               type="password"
-                               ref={(input) => this.modal_login_password = input} />
+                        <input id="txt_password" className="mdl-textfield__input" type="password" />
                         <label className="mdl-textfield__label">Password</label>
                     </div>
                 </div>
