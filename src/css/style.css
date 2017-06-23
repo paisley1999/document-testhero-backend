@@ -71,4 +71,17 @@ body {
 .signup-form-control.forgot-password-button-box .mdl-button {
   font-size: 12px;
 }
+.loading-data .loading-before-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 200px;
+  margin-bottom: 30px;
+}
+.loading-data .loading-before-logo-heading {
+  text-align: center;
+  font-family: "Roboto", sans-serif !important;
+  font-size: 18px !important;
+  font-weight: normal;
+}
 @import "~material-design-lite/material.min.css";
