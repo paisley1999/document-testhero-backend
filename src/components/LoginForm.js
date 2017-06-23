@@ -8,12 +8,13 @@ class LoginForm extends Component {
         $('#txt_password').val('')
     }
 
-    signInWithEmailAndPassword = ({email = '9pi.tutor@gmail.com', password = '111111'}) => {
+    signInWithEmailAndPassword = () => {
+        // {email = '9pi.tutor@gmail.com', password = '111111'}
         const input_email = $('#txt_email').val();
         const input_password = $('#txt_password').val();
-        console.log(input_email + ' __________________ ' + input_password)
+        // console.log(input_email + ' __________________ ' + input_password)
 
-        firebase.auth().signInWithEmailAndPassword(email, password)
+        firebase.auth().signInWithEmailAndPassword(input_email, input_password)
             .catch(function (error) {
                 // Handle Errors here.
                 let errorCode = error.code;
@@ -28,6 +29,7 @@ class LoginForm extends Component {
     }
 
     render() {
+        console.log('LoginForm Component')
         return (
             <div className="">
                 <div className={`signup-form-control`}>
