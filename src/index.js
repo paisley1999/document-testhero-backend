@@ -10,17 +10,26 @@ import store from './store';
 
 import registerServiceWorker from './registerServiceWorker';
 
+import ReactGA from 'react-ga';
+
 // import style css
 import './css/style.css'
 
 // import components
 import App from './containers/App'
 
+ReactGA.initialize(process.env.REACT_APP_G_ANALYTICS);
+
+const logPageView = () => {
+  ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname);
+};
+
 const router = (
     <Provider store={store}>
-        <Router>
+        <Router onUpdate={logPageView}>
             <div>
-                <Route exact path="/" component={App}/>
+                <Route exact path={process.env.PUBLIC_URL + '/'} component={App}/>
             </div>
         </Router>
     </Provider>
