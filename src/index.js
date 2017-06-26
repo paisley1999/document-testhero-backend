@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
-import store from './store';
+import store, { history } from './store';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -16,20 +16,22 @@ import ReactGA from 'react-ga';
 import './css/style.css'
 
 // import components
-import App from './containers/App'
+import Main from './containers/Main'
+import ApiDetail from './containers/ApiDetail'
 
-ReactGA.initialize(process.env.REACT_APP_G_ANALYTICS);
 
 const logPageView = () => {
-  ReactGA.set({ page: window.location.pathname });
-  ReactGA.pageview(window.location.pathname);
+    ReactGA.initialize(process.env.REACT_APP_G_ANALYTICS);
+    ReactGA.set({ page: window.location.pathname });
+    ReactGA.pageview(window.location.pathname);
 };
 
 const router = (
     <Provider store={store}>
-        <Router onUpdate={logPageView}>
+        <Router onUpdate={logPageView} history={ history }>
             <div>
-                <Route exact path={process.env.PUBLIC_URL + '/'} component={App}/>
+                <Route exact path={process.env.PUBLIC_URL + '/'} component={Main}/>
+                <Route path={process.env.PUBLIC_URL + '/api/:id'} component={ApiDetail}/>
             </div>
         </Router>
     </Provider>

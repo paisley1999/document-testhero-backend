@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { routing } from '../routing'
 import firebase from 'firebase'
 import { config } from '../helper/firebase'
 
@@ -12,8 +13,16 @@ class Main extends Component {
     }
 
     componentDidMount() {
-        firebase.initializeApp(config);
+        if (!firebase.apps.length) {
+            firebase.initializeApp(config);
+        }
         this.props.getUserStatus()
+
+        if (this.props.user !== '' && this.props.user !== 'null') {
+            this.setState({
+                isLoading: false
+            })
+        }
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
@@ -34,7 +43,7 @@ class Main extends Component {
                         <LoadingDataComponent/>
                         :
                         this.props.user !== '' && this.props.user !== 'null' ?
-                            <ListApi/>
+                            <ListApi {...this.props} />
                             :
                             <LoginForm/>
                 }
@@ -43,4 +52,4 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default routing(Main);
