@@ -1,4 +1,18 @@
 @import "~material-design-lite/material.min.css";
+.page-content {
+  padding: 30px 50px 0px 50px !important;
+}
+.page-content > table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+.page-content .box-no {
+  width: 5% !important;
+}
+.page-content .box-id {
+  width: 15% !important;
+}
 .App {
   text-align: center;
 }

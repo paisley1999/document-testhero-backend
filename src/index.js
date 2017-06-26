@@ -2,7 +2,8 @@ import React from 'react';
 import { render } from 'react-dom';
 import {
     BrowserRouter as Router,
-    Route
+    Route,
+    Switch
 } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
@@ -18,7 +19,8 @@ import './css/style.css'
 // import components
 import Main from './containers/Main'
 import ApiDetail from './containers/ApiDetail'
-
+import AdminCreateApi from './containers/AdminCreateApi'
+import NotFound from './components/shared/NotFound'
 
 const logPageView = () => {
     ReactGA.initialize(process.env.REACT_APP_G_ANALYTICS);
@@ -30,8 +32,12 @@ const router = (
     <Provider store={store}>
         <Router onUpdate={logPageView} history={ history }>
             <div>
-                <Route exact path={process.env.PUBLIC_URL + '/'} component={Main}/>
-                <Route path={process.env.PUBLIC_URL + '/api/:id'} component={ApiDetail}/>
+                <Switch>
+                    <Route exact path={process.env.PUBLIC_URL + '/'} component={Main}/>
+                    <Route path={process.env.PUBLIC_URL + '/api/:id'} component={ApiDetail}/>
+                    <Route path={process.env.PUBLIC_URL + '/create'} component={AdminCreateApi}/>
+                    <Route component={NotFound}/>
+                </Switch>
             </div>
         </Router>
     </Provider>

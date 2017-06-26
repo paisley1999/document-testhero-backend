@@ -27,7 +27,6 @@ class Main extends Component {
 
     componentWillReceiveProps(nextProps, nextContext) {
         if (this.props.user !== nextProps.user) {
-            console.log('______________________-- ' + nextProps.user)
             this.setState({ isLoading: false })
         }
     }

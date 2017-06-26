@@ -16,3 +16,11 @@ export function get_api_detail(dispatch, id, update_api_detail) {
         dispatch(update_api_detail(snapshot.val()));
     })
 }
+
+export function add_new_api(postData) {
+    let newPostKey = Date.now()
+    let updates = {};
+    updates['/api/' + newPostKey] = postData;
+
+    return firebase.database().ref().update(updates);
+}
