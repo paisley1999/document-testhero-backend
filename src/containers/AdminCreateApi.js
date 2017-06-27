@@ -7,7 +7,7 @@ import { config } from '../helper/firebase'
 import AdminCreateApiContent from '../components/admin/AdminCreateApiContent'
 
 class AdminCreateApi extends Component {
-    componentDidMount() {
+    componentWillMount() {
         if (!firebase.apps.length) {
             firebase.initializeApp(config);
         }

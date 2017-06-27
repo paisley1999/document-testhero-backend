@@ -12,7 +12,7 @@ class Main extends Component {
         isLoading: true
     }
 
-    componentDidMount() {
+    componentWillMount() {
         if (!firebase.apps.length) {
             firebase.initializeApp(config);
         }

@@ -4,21 +4,19 @@ import { routing } from '../routing'
 import firebase from 'firebase'
 import { config } from '../helper/firebase'
 
+import ApiDetailContent from '../components/apis/ApiDetailContent'
+
 class ApiDetail extends Component {
-    componentDidMount() {
+    componentWillMount() {
         if (!firebase.apps.length) {
             firebase.initializeApp(config);
         }
-        const { id } = this.props.match.params
-        this.props.getApiDetail(id)
     }
 
     render() {
-        const { id } = this.props.match.params
-
         return (
             <div>
-                {`Detail Api id :  ${id}`}
+                <ApiDetailContent {...this.props}/>
             </div>
         );
     }
