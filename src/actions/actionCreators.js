@@ -1,5 +1,5 @@
 import { get_user_status } from './user/userAction'
-import { get_api_list, get_api_detail, add_new_api } from './apis/apiAction'
+import { get_api_list, get_api_detail, add_new_api ,get_api_info} from './apis/apiAction'
 
 export function update_user(user) {
     return {
@@ -19,6 +19,13 @@ export function update_api_detail(api_detail) {
     return {
         type: 'update_api_detail',
         api_detail
+    }
+}
+
+export function update_api_info(api_info) {
+    return {
+        type: 'update_api_info',
+        api_info
     }
 }
 
@@ -52,5 +59,11 @@ export function getApiDetail(id) {
 export function createApi(api) {
     return function (dispatch) {
         add_new_api(api);
+    }
+}
+
+export function getApiInfo(id) {
+    return function (dispatch) {
+        get_api_info(dispatch, id, update_api_info);
     }
 }

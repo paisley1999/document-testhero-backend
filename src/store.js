@@ -10,7 +10,8 @@ const defaultState = {
     language: '',
     user: '',
     api_list: [],
-    api_detail: {}
+    api_detail: {},
+    api_info: {}
 };
 
 const store = createStore(rootReducer, defaultState, applyMiddleware(thunk));

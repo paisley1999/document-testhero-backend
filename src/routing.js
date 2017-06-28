@@ -9,6 +9,7 @@ function mapStateToProps(state) {
         user: state.user,
         api_list: state.api_list,
         api_detail: state.api_detail,
+        api_info: state.api_info,
     }
 }
 
